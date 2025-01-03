@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Agrega una canción{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h2 class="text-center">Agrega una nueva canción</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                {{ form.title.label_tag }}
+                {{ form.title }}
+            </div>
+            <div class="mb-3">
+                {{ form.lyrics_and_chords.label_tag }}
+                {{ form.lyrics_and_chords }}
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Guardar canción</button>
+        </form>
+        <a href="{% url 'song_list' %}" class="btn btn-secondary mt-3 w-100">Volver a tu lista de Canciones</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalles del ensayo{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Ensayo del {{ rehearsal.date }} a las {{ rehearsal.time }}</h2>
+    <p><strong>Ubicación:</strong> {{ rehearsal.location }}</p>
+    <p><strong>Participantes:</strong> {{ rehearsal.participants.all|join:", " }}</p>
+
+    <hr>
+
+    <h4>Canciones para este ensayo</h4>
+    <select id="songSelector" class="form-select mb-3">
+        <option value="" selected>Seleciona una canción</option>
+        {% for song in rehearsal.songs.all %}
+            <option value="{{ song.id }}">{{ song.title }}</option>
+        {% endfor %}
+    </select>
+
+    <div id="songDetails" class="mt-3" style="display: none;">
+        <h5 id="songTitle" class="text-primary"></h5>
+        <pre id="songLyrics" class="bg-light p-3 border rounded"></pre>
+    </div>
+</div>
+
+<script>
+    // Diccionario de canciones con datos renderizados desde el servidor
+    const songs = {
+        {% for song in rehearsal.songs.all %}
+        {{ song.id }}: {
+            title: "{{ song.title }}",
+            lyrics: `{{ song.lyrics_and_chords|escapejs }}`
+        }{% if not forloop.last %},{% endif %}
+        {% endfor %}
+    };
+
+    // Maneja el evento de cambio en el selector
+    const songSelector = document.getElementById('songSelector');
+    const songDetails = document.getElementById('songDetails');
+    const songTitle = document.getElementById('songTitle');
+    const songLyrics = document.getElementById('songLyrics');
+
+    songSelector.addEventListener('change', function () {
+        const selectedSong = songs[this.value];
+        if (selectedSong) {
+            songTitle.textContent = selectedSong.title;
+            songLyrics.textContent = selectedSong.lyrics;
+            songDetails.style.display = 'block';
+        } else {
+            songDetails.style.display = 'none';
+        }
+    });
+</script>
+
+{% endblock %}

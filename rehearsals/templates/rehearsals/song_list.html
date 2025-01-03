@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Songs{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h2>Canciones</h2>
+        <form method="get" class="mb-3">
+            <div class="input-group">
+                <input type="text" name="search" class="form-control" placeholder="Buscar canciones..." value="{{ query }}">
+                <button class="btn btn-primary" type="submit">Buscar</button>
+            </div>
+        </form>
+        <ul class="list-group">
+            {% for song in songs %}
+                <li class="list-group-item">
+                    <strong>{{ song.title }}</strong>
+                </li>
+            {% empty %}
+                <li class="list-group-item">No has agregado canciones.</li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'create_song' %}" class="btn btn-success mt-3">Agrega una nueva canción</a>
+    </div>
+</div>
+{% endblock %}
