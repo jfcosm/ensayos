@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Panel de Usuario{% endblock %}
+
+{% block content %}
+<div class="container mt-5 text-center">
+    <h2 class="page-title">🎸 Bienvenido a tu Panel de Usuario</h2>
+    <p class="lead">Aquí puedes gestionar tus ensayos y canciones.</p>
+
+    <div class="mt-4">
+        <a href="{% url 'rehearsal_list' %}" class="btn btn-primary me-3">📅 Ver Ensayos</a>
+        <a href="{% url 'song_list' %}" class="btn btn-secondary">🎵 Ver Canciones</a>
+    </div>
+</div>
+{% endblock %}

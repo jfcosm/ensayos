@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Registro{% endblock %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="register-card">
+        <h2 class="text-center">📝 Crear Cuenta</h2>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button type="submit" class="btn btn-primary w-100 register-btn">🚀 Registrarse</button>
+        </form>
+
+        <div class="text-center mt-3">
+            <p class="text-light">¿Ya tienes cuenta? <a href="{% url 'login' %}" class="text-info">Iniciar sesión</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

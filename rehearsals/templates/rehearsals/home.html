@@ -1,16 +1,53 @@
 {% extends 'base.html' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Inicio | Ensayemos{% endblock %}
 
 {% block content %}
-<div class="hero-section" style="position: relative; height: 100vh; background: url('/static/images/hero-background.jpg') no-repeat center center/cover;">
-    <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5);"></div>
-    <div class="text-center text-light" style="position: relative; z-index: 1; padding-top: 30vh;">
-        <h1 class="display-4">¡Bienvenido a Ensayemos!</h1>
-        <p class="lead">Planifica fácilmente tus ensayos, agenda, canciones y acordes con tus amigos</p>
-        <a href="{% url 'song_list' %}" class="btn btn-primary btn-lg mx-2">Ver canciones</a>
-        <a href="{% url 'rehearsal_list' %}" class="btn btn-secondary btn-lg mx-2">Ver ensayos</a>
+<!-- Hero Section con Slider - Sin Márgenes -->
+<div id="heroCarousel" class="carousel slide w-100" data-bs-ride="carousel">
+    <div class="carousel-inner">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+            <div class="carousel-bg bg-image" style="background-image: url('/static/images/slider1.webp');"></div>
+            <div class="carousel-overlay"></div>
+            <div class="carousel-caption text-light">
+                <h1 class="display-4">¡Organiza tus ensayos fácilmente!</h1>
+                <p class="lead">Agenda tus prácticas y mantén a tu banda en sincronía.</p>
+                <a href="{% url 'rehearsal_list' %}" class="btn btn-light btn-lg">Ver Ensayos</a>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+            <div class="carousel-bg bg-image" style="background-image: url('/static/images/slider2.webp');"></div>
+            <div class="carousel-overlay"></div>
+            <div class="carousel-caption text-light">
+                <h1 class="display-4">Canciones y acordes en un solo lugar</h1>
+                <p class="lead">Accede a tu repertorio fácilmente y mantente preparado.</p>
+                <a href="{% url 'song_list' %}" class="btn btn-light btn-lg">Explorar Canciones</a>
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item">
+            <div class="carousel-bg bg-image" style="background-image: url('/static/images/slider2.webp');"></div>
+            <div class="carousel-overlay"></div>
+            <div class="carousel-caption text-light">
+                <h1 class="display-4">Colabora con otros músicos</h1>
+                <p class="lead">Comparte ideas, ensayos y repertorio con tu banda.</p>
+                <a href="{% url 'login' %}" class="btn btn-light btn-lg">Únete Ahora</a>
+            </div>
+        </div>
+
     </div>
+
+    <!-- Controles del Slider -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </button>
 </div>
 {% endblock %}
-

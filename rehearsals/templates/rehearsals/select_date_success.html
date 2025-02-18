@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Fecha Guardada{% endblock %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <h2 class="page-title">✅ Selección Guardada</h2>
+    <p class="lead">Tu elección ha sido registrada correctamente.</p>
+
+    {% if rehearsal.final_date %}
+        <p class="text-success"><strong>La fecha definitiva del ensayo es: 📅 {{ rehearsal.final_date }}</strong></p>
+    {% else %}
+        <p class="text-warning">Esperando la votación de otros integrantes para definir la fecha final.</p>
+    {% endif %}
+
+    <div class="mt-4">
+        <a href="{% url 'user_dashboard' %}" class="btn btn-secondary me-3">🏠 Volver al panel de usuario</a>
+        <a href="{% url 'rehearsal_list' %}" class="btn btn-primary">📅 Volver a la lista de ensayos</a>
+    </div>
+</div>
+{% endblock %}

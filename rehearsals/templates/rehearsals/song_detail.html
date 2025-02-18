@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ song.title }}{% endblock %}
+
+{% block content %}
+<div class="container song-detail-container">
+    <!-- Título de la canción -->
+    <h2 class="song-title-detail text-center">{{ song.title }}</h2>
+
+    <!-- Contenedor de letra y acordes -->
+    <div class="song-lyrics-container">
+        <pre class="song-lyrics">{{ song.lyrics_and_chords }}</pre>
+    </div>
+
+    <!-- Botón para regresar -->
+    <div class="text-center">
+        <a href="{% url 'song_list' %}" class="btn btn-secondary return-btn">🎵 Volver a la lista</a>
+    </div>
+</div>
+{% endblock %}

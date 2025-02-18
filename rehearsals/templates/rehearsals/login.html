@@ -1,16 +1,37 @@
 {% extends 'base.html' %}
 
-{% block title %}Login{% endblock %}
+{% block title %}Iniciar Sesión{% endblock %}
 
 {% block content %}
-<div class="row justify-content-center">
-    <div class="col-4">
-        <h2 class="text-center">Login</h2>
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="login-card">
+        <h2 class="text-center">🔑 Iniciar Sesión</h2>
+
+        {% if form.errors %}
+        <div class="alert alert-danger text-center">
+            ⚠️ Usuario o contraseña incorrectos. Inténtalo nuevamente.
+        </div>
+        {% endif %}
+
         <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-primary w-100">Login</button>
+            
+            <div class="mb-3">
+                <label for="{{ form.username.id_for_label }}" class="form-label">👤 Usuario</label>
+                {{ form.username }}
+            </div>
+
+            <div class="mb-3">
+                <label for="{{ form.password.id_for_label }}" class="form-label">🔒 Contraseña</label>
+                {{ form.password }}
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 login-btn">🚀 Iniciar Sesión</button>
         </form>
+
+        <div class="text-center mt-3">
+            <p class="text-light">¿No tienes cuenta? <a href="{% url 'register' %}" class="text-info">Regístrate</a></p>
+        </div>
     </div>
 </div>
 {% endblock %}

@@ -1,34 +1,47 @@
 {% extends 'base.html' %}
 
-{% block title %}Rehearsals{% endblock %}
+{% block title %}Ensayos | Ensayemos{% endblock %}
 
 {% block content %}
-<div class="container">
-    <h2 class="mt-4">Ensayos</h2>
-    <p>Acá encontrarás una lista de los ensayos agendados. Haz clic en algún ensayo para ver más detalles o seleccionar la fecha definitiva.</p>
+<div class="container py-4">
+    <h2 class="text-center page-title">🎼 Ensayos</h2>
+    <p class="text-center">Aquí encontrarás una lista de los ensayos agendados. Haz clic en un ensayo para ver más detalles o seleccionar la fecha definitiva.</p>
 
-    <ul class="list-group mt-3">
+    <div class="row">
         {% for rehearsal in rehearsals %}
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                {% if rehearsal.id %}
-                    <div>
-                        <a href="{% url 'rehearsal_detail' rehearsal.id %}" class="text-decoration-none">
-                            <strong>{{ rehearsal.date_option_1 }}</strong> - {{ rehearsal.location }}
-                        </a>
-                        <p class="mb-0"><small>Participantes: {{ rehearsal.participants.all|join:", " }}</small></p>
+            {% if rehearsal.date_option_1 < today %}
+                <!-- Ensayo pasado -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card rehearsal-card past-rehearsal">
+                        <div class="card-body">
+                            <h5 class="card-title rehearsal-date">{{ rehearsal.date_option_1 }}</h5>
+                            <p class="rehearsal-location">📍 {{ rehearsal.location }}</p>
+                            <p class="rehearsal-participants">👥 Participantes: {{ rehearsal.participants.all|join:", " }}</p>
+                            <a href="{% url 'rehearsal_detail' rehearsal.id %}" class="btn btn-secondary btn-sm disabled">Ensayo Finalizado</a>
+                        </div>
                     </div>
-                    <a href="{% url 'select_date' rehearsal.id %}" class="btn btn-sm btn-primary">Selecciona tu fecha</a>
-                {% else %}
-                    <span class="text-muted">Ensayo inválido</span>
-                {% endif %}
-            </li>
+                </div>
+            {% else %}
+                <!-- Ensayo futuro -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card rehearsal-card upcoming-rehearsal">
+                        <div class="card-body">
+                            <h5 class="card-title rehearsal-date">{{ rehearsal.date_option_1 }}</h5>
+                            <p class="rehearsal-location">📍 {{ rehearsal.location }}</p>
+                            <p class="rehearsal-participants">👥 Participantes: {{ rehearsal.participants.all|join:", " }}</p>
+                            <a href="{% url 'rehearsal_detail' rehearsal.id %}" class="btn btn-primary btn-sm">Ver Ensayo</a>
+                            <a href="{% url 'select_date' rehearsal.id %}" class="btn btn-success btn-sm">Selecciona tu fecha</a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
         {% empty %}
-            <li class="list-group-item text-muted">No hay ensayos agendados.</li>
+            <p class="text-center no-rehearsals">No hay ensayos agendados.</p>
         {% endfor %}
-    </ul>
+    </div>
 
-    <div class="mt-4">
-        <a href="{% url 'create_rehearsal' %}" class="btn btn-success">Agenda un nuevo ensayo</a>
+    <div class="text-center mt-4">
+        <a href="{% url 'create_rehearsal' %}" class="btn btn-success add-rehearsal-btn">➕ Agenda un nuevo ensayo</a>
     </div>
 </div>
 {% endblock %}

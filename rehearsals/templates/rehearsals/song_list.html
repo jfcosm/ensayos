@@ -1,27 +1,38 @@
 {% extends 'base.html' %}
 
-{% block title %}Songs{% endblock %}
+{% block title %}Canciones | Ensayemos{% endblock %}
 
 {% block content %}
-<div class="row">
-    <div class="col-12">
-        <h2>Canciones</h2>
-        <form method="get" class="mb-3">
-            <div class="input-group">
-                <input type="text" name="search" class="form-control" placeholder="Buscar canciones..." value="{{ query }}">
-                <button class="btn btn-primary" type="submit">Buscar</button>
+<div class="container py-4">
+    <h2 class="text-center page-title">🎵 Canciones</h2>
+
+    <!-- Barra de búsqueda -->
+    <form method="get" class="mb-4 search-bar">
+        <div class="input-group">
+            <input type="text" name="search" class="form-control search-input" placeholder="Buscar canciones..." value="{{ query }}">
+            <button class="btn btn-primary search-btn" type="submit">🔍 Buscar</button>
+        </div>
+    </form>
+
+    <!-- Lista de canciones -->
+    <div class="row">
+        {% for song in songs %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card song-card">
+                    <div class="card-body">
+                        <h5 class="card-title song-title">{{ song.title }}</h5>
+                        <a href="{% url 'song_detail' song.id %}" class="btn btn-success btn-sm">🎸 Ver canción</a>
+                    </div>
+                </div>
             </div>
-        </form>
-        <ul class="list-group">
-            {% for song in songs %}
-                <li class="list-group-item">
-                    <strong>{{ song.title }}</strong>
-                </li>
-            {% empty %}
-                <li class="list-group-item">No has agregado canciones.</li>
-            {% endfor %}
-        </ul>
-        <a href="{% url 'create_song' %}" class="btn btn-success mt-3">Agrega una nueva canción</a>
+        {% empty %}
+            <p class="text-center no-songs">No has agregado canciones.</p>
+        {% endfor %}
+    </div>
+
+    <!-- Botón para agregar canción -->
+    <div class="text-center mt-4">
+        <a href="{% url 'create_song' %}" class="btn btn-success add-song-btn">➕ Agregar una nueva canción</a>
     </div>
 </div>
 {% endblock %}
