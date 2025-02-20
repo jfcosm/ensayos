@@ -1,24 +1,43 @@
 {% extends 'base.html' %}
 
-{% block title %}Agrega una canción{% endblock %}
+{% block title %}Agrega una canción | Ensayemos{% endblock %}
 
 {% block content %}
-<div class="row justify-content-center">
-    <div class="col-md-8">
-        <h2 class="text-center">Agrega una nueva canción</h2>
-        <form method="post">
-            {% csrf_token %}
-            <div class="mb-3">
-                {{ form.title.label_tag }}
-                {{ form.title }}
+<div class="container py-4">
+    <h2 class="text-center page-title">🎵 Agrega una nueva canción</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card form-card">
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+
+                        <!-- Título de la canción -->
+                        <div class="mb-3">
+                            <label class="form-label" for="{{ form.title.id_for_label }}">🎼 {{ form.title.label }}</label>
+                            {{ form.title }}
+                        </div>
+
+                        <!-- Letras y acordes -->
+                        <div class="mb-3">
+                            <label class="form-label" for="{{ form.lyrics_and_chords.id_for_label }}">📜 {{ form.lyrics_and_chords.label }}</label>
+                            {{ form.lyrics_and_chords }}
+                        </div>
+
+                        <!-- Botón de guardar canción -->
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary form-btn">💾 Guardar Canción</button>
+                        </div>
+                    </form>
+
+                    <!-- Botón de volver a la lista de canciones -->
+                    <div class="text-center mt-3">
+                        <a href="{% url 'song_list' %}" class="btn btn-secondary form-btn">🔙 Volver a tu lista de Canciones</a>
+                    </div>
+                </div>
             </div>
-            <div class="mb-3">
-                {{ form.lyrics_and_chords.label_tag }}
-                {{ form.lyrics_and_chords }}
-            </div>
-            <button type="submit" class="btn btn-primary w-100">Guardar canción</button>
-        </form>
-        <a href="{% url 'song_list' %}" class="btn btn-secondary mt-3 w-100">Volver a tu lista de Canciones</a>
+        </div>
     </div>
 </div>
 {% endblock %}

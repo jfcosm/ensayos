@@ -65,6 +65,13 @@
                         <div class="mb-3">
                             <label class="form-label" for="songs">🎶 Selecciona tus canciones:</label>
                             {{ form.songs }}
+
+                            <!-- Botón para agregar canciones si no hay ninguna -->
+                            <div class="mt-2">
+                                <a href="{% url 'create_song' %}" class="btn btn-success">
+                                    ➕ Agregar Canciones
+                                </a>
+                            </div>
                         </div>
 
                         <!-- Botón de enviar -->
