@@ -137,3 +137,9 @@ def login_user(request):
             messages.error(request, "⚠️ Usuario o contraseña incorrectos. Inténtalo nuevamente.")
 
     return render(request, "rehearsals/login.html")
+
+
+@login_required
+def song_detail(request, song_id):
+    song = get_object_or_404(Song, id=song_id)
+    return render(request, "rehearsals/song_detail.html", {"song": song})

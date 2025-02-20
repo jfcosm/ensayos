@@ -1,53 +1,83 @@
 /* ======= IMPORTACIÓN DE FUENTES ======= */
-@import url('https://fonts.googleapis.com/css2?family=Sour+Gummy&family=Lily+Script+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&family=Galada&display=swap');
 
 /* ======= ESTILOS GENERALES ======= */
 body {
-    background-color: #ffffff; /* Fondo claro */
-    font-family: Arial, sans-serif;
-    color: #212529; /* Texto oscuro */
+    background-color: #121212; /* Fondo oscuro para un estilo moderno */
+    font-family: 'Raleway', sans-serif;
+    color: #EAEAEA;
     margin: 0;
     padding: 0;
 }
 
 /* ======= NAVBAR ======= */
 .navbar {
-    margin: 0;
-    padding: 0;
+    background-image: url('/static/images/textura-ampli.jpg'); /* Asegura que la ruta sea correcta */
+    background-size: contain;
+    background-repeat: repeat;
+    background-position: center;
+    background-color: #111;
+    border-bottom: 3px solid #FF3B3F;
 }
 
-.bg-red {
-    background-color: #a00000;
+/* ======= BOTONES DEL NAVBAR ======= */
+.nav-button {
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo negro semi-transparente */
+    color: white !important;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
 }
 
-.logo-text {
-    font-family: 'Lily Script One', cursive;
-    font-size: 1.8rem;
-    color: white;
+.nav-button:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Efecto al pasar el mouse */
+}
+
+
+/* ======= ESTILO PARA EL NOMBRE DE LA APP ======= */
+.navbar-brand {
+    font-family: 'Galada', cursive; /* Fuente inspirada en el arte de la música */
+    font-size: 2.5rem;
+    color: white; /* Blanco para destacar sobre el fondo oscuro */
     text-decoration: none;
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
+    letter-spacing: 1px;
 }
 
-/* ======= HERO CAROUSEL ======= */
+.navbar-brand:hover {
+    color: #CCCCCC; /* Un tono más suave al pasar el mouse */
+}
+
+.nav-link {
+    color: #EAEAEA;
+    font-size: 1rem;
+}
+
+.nav-link:hover {
+    color: #FF3B3F;
+}
+
+/* ======= HERO SLIDER ======= */
 #heroCarousel {
     width: 100%;
-    height: 100vh;
+    height: 90vh;
     position: relative;
-    margin: 0;
-    padding: 0;
+    overflow: hidden;
 }
 
 .carousel-item {
     width: 100%;
-    height: 100vh;
-    position: relative;
+    height: 90vh;
+    background-size: cover;
+    background-position: center;
 }
 
 .carousel-bg {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-size: cover;
-    background-position: center;
+    object-fit: cover;
 }
 
 .carousel-overlay {
@@ -70,31 +100,101 @@ body {
 }
 
 .carousel-caption h1 {
-    font-family: 'Sour Gummy', cursive;
+    font-family: 'Galada', cursive; /* Estilo artístico */
     font-size: 3rem;
     font-weight: bold;
+    color: #FFF;
 }
 
-/* Corregir color del subtítulo en el slider */
-.carousel-caption p.lead {
-    color: white !important; /* Asegura que el color sea blanco */
+.carousel-caption p {
+    color: white;
     font-size: 1.3rem;
 }
 
+/* ======= FORMULARIOS ======= */
+.form-container {
+    background-color: #1E1E1E;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(255, 59, 63, 0.3);
+}
 
+.form-control {
+    background-color: #2C2C2C;
+    border: 1px solid #444;
+    color: #EAEAEA;
+    padding: 12px;
+    border-radius: 5px;
+}
 
+.form-control::placeholder {
+    color: #888;
+}
+
+.form-control:focus {
+    border-color: #FF3B3F;
+    box-shadow: 0 0 10px rgba(255, 59, 63, 0.5);
+}
+
+/* ======= BOTONES ======= */
+.btn-primary {
+    background-color: #FF3B3F;
+    border: none;
+    color: white;
+    padding: 12px;
+    border-radius: 5px;
+    transition: 0.3s;
+    font-size: 1.1rem;
+}
+
+.btn-primary:hover {
+    background-color: #D32F2F;
+}
+
+.btn-secondary {
+    background-color: #333;
+    border: none;
+    color: white;
+    padding: 12px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #555;
+}
+
+/* ======= TARJETAS ======= */
+.card {
+    background-color: #222;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 5px 10px rgba(255, 59, 63, 0.2);
+}
+
+/* ======= PÁGINAS ======= */
+.container {
+    margin-top: 50px;
+}
+
+/* ======= LISTAS ======= */
+.list-group-item {
+    background-color: #222;
+    border: 1px solid #333;
+    color: #EAEAEA;
+}
 
 /* ======= FOOTER ======= */
 .footer {
-    background-color: #333;
-    color: white;
+    background-color: #1E1E1E;
+    color: #EAEAEA;
     text-align: center;
-    padding: 20px 0;
-    margin: 0;
+    padding: 20px;
+    margin-top: 50px;
 }
 
 .footer a {
-    color: white;
+    color: #FF3B3F;
     text-decoration: none;
 }
 
@@ -102,435 +202,31 @@ body {
     text-decoration: underline;
 }
 
-/* ======= BOTONES ======= */
-.btn-light {
-    background-color: white;
-    color: #a00000;
-    border: 2px solid white;
-    transition: 0.3s;
-}
 
-.btn-light:hover {
-    background-color: #f5f5f5;
-    color: #600000;
-    border-color: #f5f5f5;
-}
-
-.btn-primary {
-    background-color: #a00000;
-    border: none;
-    color: white;
-}
-
-.btn-primary:hover {
-    background-color: #600000;
-}
-
-.btn-secondary {
-    background-color: #555;
-    border: none;
-    color: white;
-}
-
-.btn-secondary:hover {
-    background-color: #444;
-}
-
-/* ======= FORMULARIOS Y CAMPOS ======= */
-.form-control {
-    background-color: #f9f9f9; /* Fondo claro */
-    border: 1px solid #ccc;
-    color: #212529;
-    padding: 10px;
-    border-radius: 8px;
-}
-
-.form-control::placeholder {
-    color: #6c757d; /* Placeholder gris oscuro */
-    opacity: 1;
-}
-
-.form-control:focus {
-    background-color: #ffffff;
-    border-color: #a00000;
-    box-shadow: 0 0 8px rgba(160, 0, 0, 0.5);
-}
-
-/* Botón de formulario */
-.form-btn {
-    font-size: 1.2rem;
-    padding: 10px 20px;
-    border-radius: 8px;
-    background-color: #a00000;
-    border: none;
-    color: white;
-    transition: background 0.3s;
-}
-
-.form-btn:hover {
-    background-color: #600000;
-}
-
-/* ======= CONTENEDORES CLAROS ======= */
-.card {
-    background-color: #ffffff; /* Tarjetas en blanco */
-    color: #212529;
+/* ======= ESTILOS PARA LAS TARJETAS DE CANCIONES ======= */
+.song-card {
+    background-color: #222; /* Mantiene el fondo oscuro */
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* ======= LOGIN & REGISTER ======= */
-.container.d-flex {
-    height: 100vh;
-}
-
-.login-card,
-.register-card {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 5px 10px rgba(255, 59, 63, 0.2);
     text-align: center;
-    width: 100%;
-    max-width: 400px;
-}
-
-.login-card h2,
-.register-card h2 {
-    font-size: 2rem;
-    color: #212529;
-    font-family: 'Sour Gummy', cursive;
-}
-
-.login-btn,
-.register-btn {
-    background-color: #a00000;
-    border: none;
-    color: white;
-    font-size: 1.2rem;
-    padding: 10px;
-    border-radius: 8px;
-    transition: 0.3s;
-}
-
-.login-btn:hover,
-.register-btn:hover {
-    background-color: #600000;
-}
-
-/* ======= LISTA DE CANCIONES ======= */
-.song-card {
-    background-color: #f9f9f9;
-    color: #212529;
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 20px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.song-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .song-title {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #212529;
+    color: white; /* Asegura que el título sea visible */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-/* ======= LISTA DE ENSAYOS ======= */
-.rehearsal-card {
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 20px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.upcoming-rehearsal {
-    background-color: #f9f9f9;
-    border-left: 6px solid #28a745;
-}
-
-.past-rehearsal {
-    background-color: #e0e0e0;
-    border-left: 6px solid #777;
-    opacity: 0.8;
-}
-
-/* ======= SELECCIÓN DE FECHAS ======= */
-.date-card {
-    background-color: #f9f9f9;
-    color: #212529;
-    border: 2px solid transparent;
-    text-align: center;
-    padding: 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.date-option:hover .date-card {
-    background-color: #eeeeee;
-    transform: scale(1.05);
-}
-
-.date-option input[type="radio"]:checked + .date-card {
-    border: 2px solid #28a745;
-    background-color: #e0e0e0;
-    box-shadow: 0px 0px 15px rgba(40, 167, 69, 0.6);
-}
-
-/* ======= MENSAJE DE CONFIRMACIÓN ======= */
-.page-title {
-    font-family: 'Sour Gummy', cursive;
-    font-size: 2.5rem;
-    color: #212529;
-    margin-bottom: 20px;
-}
-
-.lead {
-    font-size: 1.3rem;
-    color: #333333;
-}
-
-/* ======= ESTILOS PARA DETALLE DE CANCIÓN ======= */
-.song-detail-container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-/* Título de la canción */
-.song-title-detail {
-    font-family: 'Sour Gummy', cursive;
-    font-size: 2.5rem;
-    color: #a00000;
-    margin-bottom: 20px;
-}
-
-/* Contenedor de la letra y acordes */
-.song-lyrics-container {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    border-left: 5px solid #a00000;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    max-height: 500px; /* Altura máxima con scroll si es necesario */
-    overflow-y: auto;
-}
-
-/* Texto de la canción */
-.song-lyrics {
-    white-space: pre-wrap;
-    font-family: 'Courier New', monospace;
-    font-size: 1.1rem;
-    color: #212529;
-}
-
-/* Botón de regreso */
-.return-btn {
-    font-size: 1.1rem;
-    padding: 10px 15px;
-    border-radius: 8px;
-    margin-top: 20px;
-}
-
-/* ======= ESTILOS PARA DETALLE DEL ENSAYO ======= */
-.rehearsal-detail-container {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-/* Título del ensayo */
-.rehearsal-title {
-    font-family: 'Sour Gummy', cursive;
-    font-size: 2.5rem;
-    color: #a00000;
-    margin-bottom: 10px;
-}
-
-/* Información del ensayo */
-.rehearsal-info {
-    font-size: 1.2rem;
-    color: #333;
-}
-
-/* Secciones dentro del detalle del ensayo */
-.rehearsal-section {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.section-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #a00000;
-}
-
-/* Lista de participantes */
-.participants-list {
-    font-size: 1.1rem;
-    color: #212529;
-}
-
-/* Tarjetas de canciones */
-.song-card {
-    background-color: #f9f9f9;
-    border: 2px solid transparent;
-    text-align: center;
-    padding: 15px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.song-card:hover {
-    background-color: #eeeeee;
-    transform: scale(1.05);
-}
-
-/* Estilo cuando se selecciona una canción */
-.song-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #212529;
-}
-
-/* Contenedor de la letra y acordes SIN SCROLL */
-.song-detail-container {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    border-left: 5px solid #a00000;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    width: 100%;
-}
-
-/* Título de la canción en la sección de detalles */
-.song-title-detail {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #a00000;
-    margin-bottom: 10px;
-}
-
-/* Texto de la canción SIN SCROLL */
-.song-lyrics-container {
-    white-space: pre-wrap;
-    font-family: 'Courier New', monospace;
-    font-size: 1.1rem;
-    color: #212529;
-    overflow: visible; /* Evita el scroll interno */
-    max-height: none; /* Permite que crezca según el contenido */
-    padding: 20px;
-    line-height: 1.4;
-}
-
-/* Botón de regreso */
-.return-btn {
-    font-size: 1.1rem;
-    padding: 10px 15px;
-    border-radius: 8px;
-    margin-top: 20px;
-}
-
-
-/* ======= ESTILOS PARA REGISTRO ======= */
-
-
-.register-title {
-    font-family: 'Sour Gummy', cursive;
-    font-size: 2rem;
-    color: #a00000;
-    margin-bottom: 10px;
-}
-
-.register-subtitle {
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 20px;
-}
-
-.register-container {
-    max-width: 600px;
-    margin: 40px auto;
-    text-align: left;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.register-form .form-group {
-    margin-bottom: 15px;
-}
-
-.register-form label {
-    font-weight: bold;
-    color: #212529;
-}
-
-.register-form .form-control {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
-}
-
-.register-form .form-control:focus {
-    background-color: #ffffff;
-    border-color: #a00000;
-    box-shadow: 0 0 8px rgba(160, 0, 0, 0.5);
-}
-
-
-
-
-
-
-.register-btn {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    font-size: 1.2rem;
-    border-radius: 5px;
-    background-color: #a00000;
+/* Ajuste en los botones para más contraste */
+.song-card .btn {
+    margin-top: 10px;
+    background-color: #FF3B3F;
     border: none;
     color: white;
-    transition: background 0.3s;
 }
 
-.register-btn:hover {
-    background-color: #600000;
-}
-
-.register-login-link {
-    text-align: left;
-    margin-top: 15px;
-    font-size: 1rem;
-}
-
-.register-login-link a {
-    color: #a00000;
-    text-decoration: none;
-}
-
-.register-login-link a:hover {
-    text-decoration: underline;
+.song-card .btn:hover {
+    background-color: #D32F2F;
 }

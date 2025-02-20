@@ -2,7 +2,7 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 from .views import (
     home, song_list, create_song, create_rehearsal, rehearsal_list,
-    rehearsal_detail, select_date, user_dashboard, register_user,
+    rehearsal_detail, select_date, user_dashboard, register_user,song_detail
 )
 
 urlpatterns = [
@@ -23,4 +23,7 @@ urlpatterns = [
     ), name="login"),
     
     path("logout/", auth_views.LogoutView.as_view(), name="logout"),
+
+    path("songs/<int:song_id>/", song_detail, name="song_detail"),  # Agregando esta línea
+
 ]
