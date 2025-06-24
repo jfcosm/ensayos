@@ -1,0 +1,232 @@
+/* ======= IMPORTACIÓN DE FUENTES ======= */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&family=Galada&display=swap');
+
+/* ======= ESTILOS GENERALES ======= */
+body {
+    background-color: #121212; /* Fondo oscuro para un estilo moderno */
+    font-family: 'Raleway', sans-serif;
+    color: #EAEAEA;
+    margin: 0;
+    padding: 0;
+}
+
+/* ======= NAVBAR ======= */
+.navbar {
+    background-image: url('/static/images/textura-ampli.jpg'); /* Asegura que la ruta sea correcta */
+    background-size: contain;
+    background-repeat: repeat;
+    background-position: center;
+    background-color: #111;
+    border-bottom: 3px solid #FF3B3F;
+}
+
+/* ======= BOTONES DEL NAVBAR ======= */
+.nav-button {
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo negro semi-transparente */
+    color: white !important;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-button:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Efecto al pasar el mouse */
+}
+
+
+/* ======= ESTILO PARA EL NOMBRE DE LA APP ======= */
+.navbar-brand {
+    font-family: 'Galada', cursive; /* Fuente inspirada en el arte de la música */
+    font-size: 2.5rem;
+    color: white; /* Blanco para destacar sobre el fondo oscuro */
+    text-decoration: none;
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
+    letter-spacing: 1px;
+}
+
+.navbar-brand:hover {
+    color: #CCCCCC; /* Un tono más suave al pasar el mouse */
+}
+
+.nav-link {
+    color: #EAEAEA;
+    font-size: 1rem;
+}
+
+.nav-link:hover {
+    color: #FF3B3F;
+}
+
+/* ======= HERO SLIDER ======= */
+#heroCarousel {
+    width: 100%;
+    height: 90vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-item {
+    width: 100%;
+    height: 90vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.carousel-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 80%;
+    padding: 20px;
+}
+
+.carousel-caption h1 {
+    font-family: 'Galada', cursive; /* Estilo artístico */
+    font-size: 3rem;
+    font-weight: bold;
+    color: #FFF;
+}
+
+.carousel-caption p {
+    color: white;
+    font-size: 1.3rem;
+}
+
+/* ======= FORMULARIOS ======= */
+.form-container {
+    background-color: #1E1E1E;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(255, 59, 63, 0.3);
+}
+
+.form-control {
+    background-color: #2C2C2C;
+    border: 1px solid #444;
+    color: #EAEAEA;
+    padding: 12px;
+    border-radius: 5px;
+}
+
+.form-control::placeholder {
+    color: #888;
+}
+
+.form-control:focus {
+    border-color: #FF3B3F;
+    box-shadow: 0 0 10px rgba(255, 59, 63, 0.5);
+}
+
+/* ======= BOTONES ======= */
+.btn-primary {
+    background-color: #FF3B3F;
+    border: none;
+    color: white;
+    padding: 12px;
+    border-radius: 5px;
+    transition: 0.3s;
+    font-size: 1.1rem;
+}
+
+.btn-primary:hover {
+    background-color: #D32F2F;
+}
+
+.btn-secondary {
+    background-color: #333;
+    border: none;
+    color: white;
+    padding: 12px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #555;
+}
+
+/* ======= TARJETAS ======= */
+.card {
+    background-color: #222;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 5px 10px rgba(255, 59, 63, 0.2);
+}
+
+/* ======= PÁGINAS ======= */
+.container {
+    margin-top: 50px;
+}
+
+/* ======= LISTAS ======= */
+.list-group-item {
+    background-color: #222;
+    border: 1px solid #333;
+    color: #EAEAEA;
+}
+
+/* ======= FOOTER ======= */
+.footer {
+    background-color: #1E1E1E;
+    color: #EAEAEA;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.footer a {
+    color: #FF3B3F;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+
+/* ======= ESTILOS PARA LAS TARJETAS DE CANCIONES ======= */
+.song-card {
+    background-color: #222; /* Mantiene el fondo oscuro */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 5px 10px rgba(255, 59, 63, 0.2);
+    text-align: center;
+}
+
+.song-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white; /* Asegura que el título sea visible */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Ajuste en los botones para más contraste */
+.song-card .btn {
+    margin-top: 10px;
+    background-color: #FF3B3F;
+    border: none;
+    color: white;
+}
+
+.song-card .btn:hover {
+    background-color: #D32F2F;
+}
