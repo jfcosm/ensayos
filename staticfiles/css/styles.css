@@ -230,3 +230,67 @@ body {
 .song-card .btn:hover {
     background-color: #D32F2F;
 }
+
+
+/* ======= CORRECCIÓN DE COLOR PARA <p> ======= */
+p {
+    color: #EAEAEA;
+}
+
+
+/* ======= CORRECCIÓN DE COLOR PARA LABELS ======= */
+label {
+    color: #EAEAEA;
+}
+
+/* ======= CORRECCIÓN DE COLOR PARA TEXTOS DE TARJETAS ======= */
+.card-title,
+.rehearsal-date {
+    color: #EAEAEA;
+}
+
+.why-ensayemos {
+    background-color: #1E1E1E;
+    color: #EAEAEA;
+    border-top: 2px solid #FF3B3F;
+    border-bottom: 2px solid #FF3B3F;
+}
+
+.why-ensayemos h2 {
+    font-weight: 700;
+}
+
+.why-ensayemos h4 {
+    color: #FF3B3F;
+    margin-bottom: 15px;
+}
+
+/* Estilo específico para los párrafos oscuros de la página de ventajas */
+p.ventaja-parrafo {
+    color: #333333; /* Gris muy oscuro */
+}
+
+
+
+/* Estilo uniforme para botones de la navbar */
+.navbar-nav .nav-item {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.navbar-nav .nav-link.nav-button,
+.navbar-nav .btn.nav-button {
+    padding: 0.5rem 1rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 0.375rem; /* opcional, para bordes más suaves */
+    background-color: rgba(0, 0, 0, 0.749);
+    transition: background-color 0.2s ease;
+}
+
+.navbar-nav .nav-link.nav-button:hover,
+.navbar-nav .btn.nav-button:hover {
+    background-color: rgba(0, 0, 0, 0.452);
+    text-decoration: none;
+}
