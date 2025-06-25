@@ -143,3 +143,12 @@ def login_user(request):
 def song_detail(request, song_id):
     song = get_object_or_404(Song, id=song_id)
     return render(request, "rehearsals/song_detail.html", {"song": song})
+
+
+from django.shortcuts import render
+
+def ventajas(request):
+    return render(request, 'rehearsals/ventajas.html')
+
+def acerca_de(request):
+    return render(request, 'rehearsals/acerca_de.html')

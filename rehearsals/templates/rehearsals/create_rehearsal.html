@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %}
 
 {% block title %}Agendar Ensayo | Ensayemos{% endblock %}
@@ -13,70 +14,29 @@
                     <form method="post">
                         {% csrf_token %}
 
-                        <!-- Primera opción de fecha y hora -->
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label class="form-label" for="{{ form.date_option_1.id_for_label }}">📆 {{ form.date_option_1.label }}</label>
-                                {{ form.date_option_1 }}
+                                <label class="form-label" for="{{ form.date.id_for_label }}">📆 {{ form.date.label }}</label>
+                                {{ form.date }}
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label" for="{{ form.time_option_1.id_for_label }}">⏰ {{ form.time_option_1.label }}</label>
-                                {{ form.time_option_1 }}
+                                <label class="form-label" for="{{ form.time.id_for_label }}">⏰ {{ form.time.label }}</label>
+                                {{ form.time }}
                             </div>
                         </div>
 
-                        <!-- Segunda opción de fecha y hora -->
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label class="form-label" for="{{ form.date_option_2.id_for_label }}">📆 {{ form.date_option_2.label }}</label>
-                                {{ form.date_option_2 }}
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label" for="{{ form.time_option_2.id_for_label }}">⏰ {{ form.time_option_2.label }}</label>
-                                {{ form.time_option_2 }}
-                            </div>
-                        </div>
-
-                        <!-- Tercera opción de fecha y hora -->
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label class="form-label" for="{{ form.date_option_3.id_for_label }}">📆 {{ form.date_option_3.label }}</label>
-                                {{ form.date_option_3 }}
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label" for="{{ form.time_option_3.id_for_label }}">⏰ {{ form.time_option_3.label }}</label>
-                                {{ form.time_option_3 }}
-                            </div>
-                        </div>
-
-                        <!-- Ubicación -->
                         <div class="mb-3">
                             <label class="form-label" for="{{ form.location.id_for_label }}">📍 {{ form.location.label }}</label>
                             {{ form.location }}
                         </div>
 
-                        <!-- Participantes -->
                         <div class="mb-3">
-                            <label class="form-label" for="{{ form.participants.id_for_label }}">👥 {{ form.participants.label }}</label>
-                            {{ form.participants }}
-                        </div>
-
-                        <!-- Selección de canciones -->
-                        <div class="mb-3">
-                            <label class="form-label" for="songs">🎶 Selecciona tus canciones:</label>
+                            <label class="form-label" for="{{ form.songs.id_for_label }}">🎵 {{ form.songs.label }}</label>
                             {{ form.songs }}
-
-                            <!-- Botón para agregar canciones si no hay ninguna -->
-                            <div class="mt-2">
-                                <a href="{% url 'create_song' %}" class="btn btn-success">
-                                    ➕ Agregar Canciones
-                                </a>
-                            </div>
                         </div>
 
-                        <!-- Botón de enviar -->
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary form-btn">📌 Agendar Ensayo</button>
+                            <button type="submit" class="btn btn-primary">💾 Guardar ensayo</button>
                         </div>
                     </form>
                 </div>

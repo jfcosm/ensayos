@@ -10,21 +10,17 @@ class Band(models.Model):
 
 
 
+
 class Rehearsal(models.Model):
     band = models.ForeignKey(Band, on_delete=models.CASCADE, related_name="rehearsals", null=True, blank=True)
-    date_option_1 = models.DateField(verbose_name="Primera opción de fecha")
-    time_option_1 = models.TimeField(verbose_name="Horario primera opción", null=True, blank=True)
-    date_option_2 = models.DateField(verbose_name="Segunda opción de fecha", null=True, blank=True)
-    time_option_2 = models.TimeField(verbose_name="Horario segunda opción", null=True, blank=True)
-    date_option_3 = models.DateField(verbose_name="Tercera opción de fecha", null=True, blank=True)
-    time_option_3 = models.TimeField(verbose_name="Horario tercera opción", null=True, blank=True)
+    date = models.DateField(verbose_name="Fecha del ensayo")
+    time = models.TimeField(verbose_name="Hora del ensayo", null=True, blank=True)
     location = models.CharField(max_length=255, verbose_name="Ubicación")
     songs = models.ManyToManyField("Song", verbose_name="Canciones")
-    final_date = models.DateField(null=True, blank=True, verbose_name="Fecha definitiva")
-    final_time = models.TimeField(null=True, blank=True, verbose_name="Hora definitiva")
 
     def __str__(self):
         return f"Ensayo en {self.location} - {self.band.name}"
+
 
 class Song(models.Model):
     band = models.ForeignKey(Band, on_delete=models.CASCADE, related_name="songs", null=True, blank=True)

@@ -5,16 +5,16 @@
 {% block content %}
 <div class="container py-4">
     <h2 class="text-center page-title">🎼 Ensayos</h2>
-    <p class="text-center">Aquí encontrarás una lista de los ensayos agendados. Haz clic en un ensayo para ver más detalles o seleccionar la fecha definitiva.</p>
+    <p class="text-center">Aquí encontrarás una lista de los ensayos agendados. Haz clic en un ensayo para ver más detalles.</p>
 
     <div class="row">
         {% for rehearsal in rehearsals %}
-            {% if rehearsal.date_option_1 < today %}
+            {% if rehearsal.date < today %}
                 <!-- Ensayo pasado -->
                 <div class="col-md-6 col-lg-4">
                     <div class="card rehearsal-card past-rehearsal">
                         <div class="card-body">
-                            <h5 class="card-title rehearsal-date">{{ rehearsal.date_option_1 }}</h5>
+                            <h5 class="card-title rehearsal-date">{{ rehearsal.date }}</h5>
                             <p class="rehearsal-location">📍 {{ rehearsal.location }}</p>
                             <p class="rehearsal-participants">👥 Participantes: {{ rehearsal.participants.all|join:", " }}</p>
                             <a href="{% url 'rehearsal_detail' rehearsal.id %}" class="btn btn-secondary btn-sm disabled">Ensayo Finalizado</a>
@@ -26,11 +26,9 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="card rehearsal-card upcoming-rehearsal">
                         <div class="card-body">
-                            <h5 class="card-title rehearsal-date">{{ rehearsal.date_option_1 }}</h5>
+                            <h5 class="card-title rehearsal-date">{{ rehearsal.date }}</h5>
                             <p class="rehearsal-location">📍 {{ rehearsal.location }}</p>
-                            <p class="rehearsal-participants">👥 Participantes: {{ rehearsal.participants.all|join:", " }}</p>
                             <a href="{% url 'rehearsal_detail' rehearsal.id %}" class="btn btn-primary btn-sm">Ver Ensayo</a>
-                            <a href="{% url 'select_date' rehearsal.id %}" class="btn btn-success btn-sm">Selecciona tu fecha</a>
                         </div>
                     </div>
                 </div>

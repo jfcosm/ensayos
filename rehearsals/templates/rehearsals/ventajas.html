@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Ventajas de Ensayemos | Ensayemos{% endblock %}
+
+{% block content %}
+<header class="hero text-white text-center py-5" style="background: url('{% static 'images/ventajas-hero.webp' %}') center center/cover no-repeat;">
+    <div class="container">
+        <h1 class="display-4">Ventajas de usar <strong>Ensayemos</strong></h1>
+        <p class="lead">Descubre cómo nuestra plataforma transforma la forma en que organizas tus ensayos y repertorio</p>
+    </div>
+</header>
+
+<main class="section py-5">
+    <div class="container">
+
+        <div class="advantage bg-white rounded-4 shadow p-4 mb-5">
+            <div class="advantage-icon fs-2 mb-2">🎵</div>
+            <h3 class="fw-bold text-dark">Acceso rápido al repertorio</h3>
+            <p class="ventaja-parrafo">
+                Con Ensayemos puedes tener siempre a mano tu setlist, letras y acordes. Ya no necesitas depender de capturas de pantalla, PDFs dispersos o búsquedas en la web minutos antes de ensayar. Todo tu repertorio está organizado y centralizado, accesible desde cualquier dispositivo.
+            </p>
+        </div>
+
+        <div class="advantage bg-white rounded-4 shadow p-4 mb-5">
+            <div class="advantage-icon fs-2 mb-2">📆</div>
+            <h3 class="fw-bold text-dark">Coordinación sin estrés</h3>
+            <p class="ventaja-parrafo">
+                Olvídate de los chats confusos o mensajes cruzados. Agenda fácilmente las fechas y horarios de ensayo, define la ubicación, y notifica automáticamente a tu banda. Todos los miembros pueden confirmar su asistencia y ver los detalles al instante.
+            </p>
+        </div>
+
+        <div class="advantage bg-white rounded-4 shadow p-4">
+            <div class="advantage-icon fs-2 mb-2">🚀</div>
+            <h3 class="fw-bold text-dark">Una experiencia simple e intuitiva</h3>
+            <p class="ventaja-parrafo">
+                Ensayemos fue diseñado para músicos, no para técnicos. La interfaz es clara, sin complicaciones, y te guía paso a paso para que puedas enfocarte en lo que realmente importa: tocar y crear música con tu banda.
+            </p>
+        </div>
+
+    </div>
+</main>
+{% endblock %}

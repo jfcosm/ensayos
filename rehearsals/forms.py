@@ -31,31 +31,33 @@ class CustomUserCreationForm(UserCreationForm):
         return cleaned_data
 
 
+
 class RehearsalForm(forms.ModelForm):
     class Meta:
         model = Rehearsal
-        fields = [
-            'date_option_1', 'time_option_1',
-            'date_option_2', 'time_option_2',
-            'date_option_3', 'time_option_3',
-            'location', 'songs'
-        ]
+        fields = ['date', 'time', 'location', 'songs']
         widgets = {
-            'date_option_1': forms.DateInput(attrs={'type': 'date', 'class': 'form-control datepicker'}),
-            'time_option_1': forms.TimeInput(attrs={'type': 'time', 'class': 'form-control timepicker'}),
-            'date_option_2': forms.DateInput(attrs={'type': 'date', 'class': 'form-control datepicker'}),
-            'time_option_2': forms.TimeInput(attrs={'type': 'time', 'class': 'form-control timepicker'}),
-            'date_option_3': forms.DateInput(attrs={'type': 'date', 'class': 'form-control datepicker'}),
-            'time_option_3': forms.TimeInput(attrs={'type': 'time', 'class': 'form-control timepicker'}),
+            'date': forms.DateInput(attrs={'type': 'date', 'class': 'form-control datepicker'}),
+            'time': forms.TimeInput(attrs={'type': 'time', 'class': 'form-control timepicker'}),
             'location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ubicación'}),
             'songs': forms.SelectMultiple(attrs={'class': 'form-control'}),
         }
+
 
 class SongForm(forms.ModelForm):
     class Meta:
         model = Song
         fields = ['title', 'lyrics_and_chords']
         widgets = {
-            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Título'}),
-            'lyrics_and_chords': forms.Textarea(attrs={'class': 'form-control', 'rows': 10}),
+            'title': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Título'
+            }),
+            'lyrics_and_chords': forms.Textarea(attrs={
+                'class': 'form-control',
+                'rows': 10,
+                'placeholder': 'Escribe la letra y acordes aquí, o copialos desde tu sitio web de acordes favorito'
+            }),
         }
+
+
